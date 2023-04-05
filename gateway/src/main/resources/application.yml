@@ -1,0 +1,17 @@
+server:
+  port: 8805
+
+spring:
+  application:
+    name: gateway
+
+eureka:
+  instance:
+    preferIpAddress: true
+    lease-renewal-interval-in-seconds: 30
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
