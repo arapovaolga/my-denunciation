@@ -1,5 +1,7 @@
 package my.complains.domains;
 
-public record Complaint(Informant informant, Violator violator, String denunciation) {
+import my.complains.enums.ComplaintStatus;
+
+public record Complaint(Informant informant, Violator violator, String denunciation, ComplaintStatus status) {
 
 }
