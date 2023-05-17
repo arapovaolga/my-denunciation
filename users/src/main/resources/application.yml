@@ -4,6 +4,21 @@ server:
 spring:
   application:
     name: users
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+        alphanumeric-ids:
+          enabled: true
+resilience4j:
+  circuitbreaker:
+    instances:
+      complainsClientcreateComplaint:
+        minimumNumberOfCalls: 2
+  timelimiter:
+    instances:
+      complainsClientcreateComplaint:
+        timeoutDuration: 10s
 
 eureka:
   instance:
@@ -15,7 +30,3 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka,http://localhost:8762/eureka
     should-unregister-on-shutdown: false
-
-feign:
-  hystrix:
-    enabled: true
